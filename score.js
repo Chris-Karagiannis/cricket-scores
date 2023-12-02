@@ -14,12 +14,21 @@ window.fetch("https://api.cricapi.com/v1/match_info?apikey=8e901ae6-e77d-4689-ae
 function createScore(){
 	// Heading
 	createElement('h1', matchInfo.data.name);
+	
+	// Venue
+	createElement('h2', matchInfo.data.venue);
 
-	// Team 1
-	createElement('h2', matchInfo.data.teams[0] + ": " + matchInfo.data.score[0].w + "/" + matchInfo.data.score[0].r + " (" + matchInfo.data.score[0].o + " overs)")
+	// Toss winner
+	createElement('p', matchInfo.data.tossWinner + " won the toss and chose to " + matchInfo.data.tossChoice);
 
-	// Team 2
-	createElement('h2', matchInfo.data.teams[1] + ": " + matchInfo.data.score[1].w + "/" + matchInfo.data.score[1].r + " (" + matchInfo.data.score[1].o + " overs)")
+	// Info
+	for (let i = 0; i < matchInfo.data.score.length ; i++) {
+		const team = matchInfo.data.score[i].inning.slice(0,-9);
+		createElement('h3', team + " " + matchInfo.data.score[i].w + "/" + matchInfo.data.score[i].r + " (" + matchInfo.data.score[i].o + " overs)")
+	}
+	
+	// Status
+	createElement('p', matchInfo.data.status);
 }
 
 function createElement(type,text) {
