@@ -13,5 +13,6 @@ function checkApiKey() {
 	})
 	.catch(err => {
 		console.log("An error occured. Please check your code",err);
+        alert("API key incorrect - Please check and try again");
 	});
 }

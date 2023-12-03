@@ -24,8 +24,17 @@ function createScore(){
 
 	// Info
 	for (let i = 0; i < matchInfo.data.score.length ; i++) {
+		const n = ordinal_suffix_of(matchInfo.data.score[i].inning.substring(matchInfo.data.score[i].inning.length - 1));
 		const team = matchInfo.data.score[i].inning.slice(0,-9);
-		createElement('h3', team + " " + matchInfo.data.score[i].w + "/" + matchInfo.data.score[i].r + " (" + matchInfo.data.score[i].o + " overs)")
+		const innings = n + " Innings";
+
+		if(matchInfo.data.matchType === "test"){
+			if(i === 0 || i === 2){
+				createElement('h3', innings);
+			}
+		}
+
+		createElement('h4', team + " " + matchInfo.data.score[i].w + "/" + matchInfo.data.score[i].r + " (" + matchInfo.data.score[i].o + " overs)")
 	}
 	
 	// Status
@@ -38,4 +47,18 @@ function createElement(type,text) {
     document.body.appendChild(elem);
 }
 
+function ordinal_suffix_of(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
 
