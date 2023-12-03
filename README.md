@@ -1,6 +1,4 @@
-# Dibbly-Dobbly Podcast - Cricket Scores
-
-![alt text](images/Cover Photo.png)
+# Dibbly-Dobbly Podcast Cricket Scores
 
 ## Description
 Show cricket scores for Dibbly-Dobbly Podcast streams using cricketdata.org API
