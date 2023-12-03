@@ -12,6 +12,7 @@ window.fetch(`https://api.cricapi.com/v1/match_info?apikey=${key}&offset=0&id=` 
 		console.log("An error occured. Please check your code",err);
 	});
 
+
 function createScore(){
 	// Heading
 	createElement('h1', matchInfo.data.name);
