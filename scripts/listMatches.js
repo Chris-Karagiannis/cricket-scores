@@ -1,6 +1,7 @@
 let matches = {};
+const key = sessionStorage.getItem("key");
 
-window.fetch("https://api.cricapi.com/v1/currentMatches?apikey=8e901ae6-e77d-4689-ae88-d64df8024fe3&offset=0")
+window.fetch(`https://api.cricapi.com/v1/currentMatches?apikey=${key}&offset=0`)
 	.then(result => result.json())
 	.then(result => {
 		console.log("We have the result",result);
