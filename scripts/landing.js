@@ -9,7 +9,7 @@ function checkApiKey() {
 	.then(result => result.json())
 	.then(result => {
 		console.log("We have the result",result);
-        window.location.href = "index.html"
+        window.location.href = "matches.html"
 	})
 	.catch(err => {
 		console.log("An error occured. Please check your code",err);
